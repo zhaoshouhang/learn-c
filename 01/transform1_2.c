@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+/* 打印华氏温度与摄氏温度对照 */
+
+int main()
+{
+    float fahr, celsius;
+    int lower, upper, step;
+
+    lower = 0;
+    upper = 300;
+    step = 20;
+
+    fahr = lower;
+    printf("%3s  %6s\n", "华氏", "摄氏");
+
+    while (fahr <= upper)
+    {
+        celsius = (5.0 / 9.0) * (fahr - 32.0);
+        printf("%3.0f %6.1f\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+}
