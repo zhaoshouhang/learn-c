@@ -11,12 +11,8 @@ int main()
 {
 
     int len;            // 当前行长度
-    int max;            // 目前最长行的长度
     char line[MAXLINE]; // 当前输入行
 
-    char longest[MAXLINE]; // 保存最长行
-
-    max = 0;
     while ((len = getline(line, MAXLINE)) - 1 > 0)
     {
         // 去掉\0 打印长度,和内容
