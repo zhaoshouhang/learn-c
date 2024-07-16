@@ -7,9 +7,15 @@
 #define VAL5 '0'
 #define VAL6 "0"
 
-#define VAL7 '\65'  // 10进制
+#define VAL7 65 // 直接表示10进制
+
+// 没有十进制的表示方法
 #define VAL8 '\x41' // 16进制
 #define VAL9 '\101' // 8进制
+
+#define VAL10 0x41      // 16 进制
+#define VAL11 0101      // 8进制
+#define VAL12 0b1000001 // 2进制
 
 // 枚举类型,如果不设置 则从0开始,之后的递增+1
 enum Boolean
@@ -34,9 +40,12 @@ int main()
     printf("VAL4:%f\n", VAL4);
     printf("VAL5:%c\n", VAL5);
     printf("VAL6:%s\n", VAL6);
-    printf("VAL7:%c\n", VAL7); // windows下为什么显示5?
+    printf("VAL7:%c\n", VAL7);
     printf("VAL8:%c\n", VAL8);
     printf("VAL9:%c\n", VAL9);
+    printf("VAL10:%c\n", VAL10);
+    printf("VAL11:%c\n", VAL11);
+    printf("VAL12:%c\n", VAL12);
 
     bool = YES;
 
