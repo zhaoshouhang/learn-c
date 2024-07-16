@@ -4,7 +4,7 @@
 
 int main()
 {
-
+    // limits.h 中定义的常量
     printf("signed char range: %d~%d\n", SCHAR_MIN, SCHAR_MAX);
     printf("unsigned char range: %u~%u\n", 0, UCHAR_MAX);
 
