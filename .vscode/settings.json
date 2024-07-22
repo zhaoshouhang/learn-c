@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "limits.h": "c",
-        "float.h": "c"
+        "float.h": "c",
+        "bit": "c",
+        "*.tcc": "c",
+        "cmath": "c",
+        "random": "c"
     }
 }
