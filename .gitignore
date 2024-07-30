@@ -1,2 +1,5 @@
 *.exe
 .history
+*.out
+*.dSYM
+.vscode
