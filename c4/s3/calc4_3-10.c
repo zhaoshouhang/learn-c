@@ -16,6 +16,8 @@ int getop(char[]);
 void push(double);
 double pop(void);
 
+double it;
+
 int main()
 {
     int type;
@@ -74,8 +76,11 @@ int main()
             op2 = pop();
             push(pow(pop(), op2));
             break;
+
         case '\n':
-            printf("\t%.8g\n", pop());
+            // 习题4-6 存放最近打印的值 增加处理变量的命令 这个没理解
+            it = pop();
+            printf("\t%.8g\n", it);
             break;
         default:
             printf("error: unknown command %s\n", s);
@@ -177,7 +182,7 @@ int getop(char s[])
         {
             s[0] = tolower(s[0]);
             int i = 0;
-            while (isalpha(s[++i] = c = getch()))
+            while (isalpha(s[++i] = getch()))
             {
                 s[i] = tolower(s[i]);
 
