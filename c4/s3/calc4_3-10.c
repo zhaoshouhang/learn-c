@@ -247,3 +247,20 @@ void ungetch(int c)
         buf[bufp++] = c;
     }
 }
+// 4-7 编写一个函数ungets(s) 将s 压回到输入中.ungets 函数需要使用bug和bufp吗,能否仅使用ungetch?
+
+void ungets(char s[])
+{
+    int len = strlen(s);
+    if (len > BUFSIZE - bufp)
+    {
+        printf("ungets: too many characters\n");
+    }
+    else
+    {
+        for (; len > 0; len--)
+        {
+            ungetch(s[len - 1]);
+        }
+    }
+}
