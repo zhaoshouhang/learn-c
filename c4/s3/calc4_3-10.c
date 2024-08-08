@@ -231,6 +231,8 @@ int getop(char s[])
 char buf[BUFSIZE];
 int bufp = 0;
 
+// 4-8 只能压回一个字符,修改getch 和ungetch ,只要把缓冲区大小改成1 不就只能压回一个字符?
+
 int getch(void)
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
@@ -263,4 +265,41 @@ void ungets(char s[])
             ungetch(s[len - 1]);
         }
     }
+}
+
+// 4-9 这俩函数 处理EOF的时候会被认为成数字 -1 ,如果读取到这个 EOF时可以在压到缓冲区时,替换为别的字符来代替
+
+// 4-10 读取整行之后可以直接遍历这个字符串进行处理
+int getline(char s[])
+{
+    int max_size = BUFSIZE;
+    if (s == NULL || max_size == 0)
+    {
+        return -1; // Invalid argument
+    }
+
+    size_t pos = 0;
+    int c;
+
+    while ((c = getchar()) != EOF && c != '\n')
+    {
+        if (pos + 1 < max_size)
+        {
+            s[pos++] = (char)c;
+        }
+        else
+        {
+            // Buffer overflow condition
+            s[pos] = '\0'; // Null-terminate the string
+            return -1;     // Indicate buffer overflow
+        }
+    }
+
+    if (c == EOF && pos == 0)
+    {
+        return -1; // No input read
+    }
+
+    s[pos] = '\0'; // Null-terminate the string
+    return pos;    // Return the number of characters read
 }
