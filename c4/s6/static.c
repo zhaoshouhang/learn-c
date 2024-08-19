@@ -5,6 +5,14 @@ static int a = 1;
 
 int b = 2;
 
+void printa(void);
+void printb(void);
+
+static void test_print()
+{
+    printa();
+    printb();
+}
 void printa()
 {
     printf("%d\n", a);
